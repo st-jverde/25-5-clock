@@ -88,7 +88,7 @@ class Clock extends React.Component {
   };
   
   render() {
-    const audioSample = "/media/beep.wav";
+    const audioSample = `${process.env.PUBLIC_URL}/media/beep.wav`;
     const minutes = Math.floor(this.state.timeLeft / 60);
     const seconds = this.state.timeLeft % 60;
     
