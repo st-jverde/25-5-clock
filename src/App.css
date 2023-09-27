@@ -1,38 +1,136 @@
-.App {
+body {
+  background: rgb(0,111,53);
+  background: linear-gradient(15deg, rgba(0,111,53,1) 70%, rgba(251,175,0,1) 90%);
+  color: white;
+  font-size: 20px;
   text-align: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  height: 100vh;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+
+.main-title {
+  font-size: 80px;
+  margin-bottom: 20px;
+}
+
+#length-control {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 40px;
+}
+
+.controls {
+  width: 250px;
+}
+
+button {
+  background: none;
+  outline: none;
+  border: none;
   color: white;
+  cursor: pointer;
+  font-size: 1.5rem;
 }
 
-.App-link {
-  color: #61dafb;
+.btn-level,
+.length-control {
+  display: inline-block;
+  margin: 0 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.timer {
+/*   border: 7px solid #13353a; */
+  margin: 20px auto 10px auto;
+  width: 270px;
+  height: 160px;
+  border-radius: 50px;
+  position: relative;
+}
+
+.timer .timer-wrapper {
+  position: absolute;
+  width: 190px;
+  height: 110px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.timer #time-left {
+  font-size: 80px;
+}
+
+.timer .timer-control button:active {
+  color: #13353a;
+}
+
+@media screen and (max-height: 600px) {
+  .main-title {
+    font-size: 30px; 
+    margin-bottom: 10px; /* Reduced margin */
   }
-  to {
-    transform: rotate(360deg);
+
+  #length-control {
+    margin-bottom: 15px; /* Reduced margin */
+  }
+
+  .controls {
+    width: 180px; /* Reduced width */
+  }
+
+  button {
+    font-size: 1rem; /* Reduced font size */
+  }
+
+  .btn-level {
+    width: 30px; /* Reduced width */
+    height: 30px; /* Reduced height */
+  }
+
+  .timer {
+    width: 40vh;
+    height: 24vh;
+  }
+
+  .timer .timer-wrapper {
+    width: 70%;
+    height: 70%;
+  }
+
+  .timer #time-left {
+    font-size: 4.5vh;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .main-title {
+    font-size: 20px;
+  }
+
+  .controls {
+    width: 60%;
+  }
+
+  .timer {
+    width: 80vw;
+    height: 48vw;
+  }
+
+  .timer .timer-wrapper {
+    width: 56vw;
+    height: 32vw;
+  }
+
+  .timer #time-left {
+    font-size: 4vw;
   }
 }
