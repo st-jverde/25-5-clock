@@ -7,6 +7,7 @@ class Clock extends React.Component {
     timeLeft: 25 * 60,
     isRunning: false,
     isSession: true,
+    degree: 0,
   };
   
   incrementBreak = () => {
@@ -61,14 +62,24 @@ class Clock extends React.Component {
             this.playBeep();
             return {
               isSession: !prevState.isSession,
-               timeLeft: prevState.isSession
+              timeLeft: prevState.isSession
                 ? prevState.breakLength * 60
-                : prevState.sessionLength * 60
+                : prevState.sessionLength * 60,
+              degree: 0,
             };
           } else {
             return { timeLeft: prevState.timeLeft - 1 };
           }
         });
+        const totalSeconds = this.state.isSession ? this.state.sessionLength * 60 : this.state.breakLength * 60;
+        const degreeIncrement = 360 / totalSeconds;
+        this.setState(prevState => ({
+          degree: (prevState.degree + degreeIncrement) % 360,
+        }));
+        document.documentElement.style.setProperty('--degree', `${this.state.degree}deg`);
+        console.log('Degree:', this.state.degree);
+        console.log('Total Seconds:', totalSeconds);
+        console.log('Degree Increment:', degreeIncrement);
       }, 1000);
     }
     
@@ -83,7 +94,8 @@ class Clock extends React.Component {
       sessionLength: 25,
       timeLeft: 25 * 60,
       isRunning: false,
-      isSession: true
+      isSession: true,
+      degree: 0,
     });
   };
   

@@ -1,6 +1,10 @@
+:root {
+  --degree: 0deg;
+}
+
 body {
   background: rgb(0,111,53);
-  background: linear-gradient(15deg, rgba(0,111,53,1) 70%, rgba(251,175,0,1) 90%);
+  background: linear-gradient(var(--degree, 0deg), rgba(0,111,53,1) 70%, rgba(251,175,0,1) 90%);
   color: white;
   font-size: 20px;
   text-align: center;
